@@ -1,19 +1,10 @@
 import { createStore, compose } from 'redux'
-import { syncHistoryWithStore } from 'react-router-redux'
-import { browserHistory } from 'react-router'
+import counter from './reducers/counter'
 
-import rootReducer from './reducers/index'
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+)
 
-import messages from './data/messages'
-import topics from './data/topics'
-
-const defaultState = {
-  messages,
-  topics
-}
-
-const store = createStore(rootReducer, defaultState)
-
-export const history = syncHistoryWithStore(browserHistory, store)
+const store = createStore(counter, 0, enhancers)
 
 export default store

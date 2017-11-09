@@ -1,18 +1,20 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import ReactDOM from 'react-dom'
 
-import Main from './components/Main'
-import Board from './components/Board'
-import Topic from './components/Topic'
+import Counter from './components/Counter'
+import store from './store'
 
-const router = (
-  <Router history={browserHistory}>
-    <Route path='/' component={Main}>
-      <IndexRoute component={Board} />
-      <Route path='/topics/:id' component={Topic} />
-    </Route>
-  </Router>
+// const router = (
+//   <Counter value={store.getState()} increment={() => store.dispatch({ type: 'INCREMENT' })} />
+// )
+
+const router = () => (
+  <Counter value={store.getState()} increment={() => store.dispatch({ type: 'INCREMENT' })} />
 )
 
-render(router, document.getElementById('root'))
+const render = () => {
+  ReactDOM.render(router(), document.getElementById('root'))
+}
+
+render()
+store.subscribe(render)
