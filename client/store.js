@@ -1,10 +1,11 @@
 import { createStore, compose } from 'redux'
-import counter from './reducers/counter'
+import todoApp from './reducers/todoApp'
+// import counter from './reducers/counter'
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )
 
-const store = createStore(counter, 0, enhancers)
+const store = createStore(todoApp, enhancers)
 
 export default store
