@@ -8,10 +8,13 @@ const Todos = ({ todos, addTodo }) => {
       <h1>Todos</h1>
       <form onSubmit={(e) => {
         e.preventDefault()
+        // return if empty string provided
         if (!newTodo.value.trim()) {
           return
         }
+        // call action with new todo
         addTodo(newTodo.value)
+        // set input value back to empty string
         newTodo.value = ''
       }}>
         <input type='text'
