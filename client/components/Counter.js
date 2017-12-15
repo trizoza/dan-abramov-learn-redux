@@ -1,15 +1,12 @@
 import React from 'react'
 
-class Counter extends React.Component {
-  render () {
-    return (
-      <div>
-        <h1>{this.props.value}</h1>
-        <button onClick={this.props.increment}>+</button>
-        <button onClick={this.props.decrement}>-</button>
-      </div>
-    )
-  }
-}
+const Counter = ({ value, onIncrement, onDecrement }) => (
+  <div style={{border: '1px solid red'}}>
+    <h2>Counter</h2>
+    <h1>{value}</h1>
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
+  </div>
+)
 
 export default Counter

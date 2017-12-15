@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render }from 'react-dom'
+import { Provider } from 'react-redux'
 
-// import Counter from './components/Counter'
-import Todo from './components/Todo'
+import App from './containers/App'
+// import Todo from './components/Todo'
 import store from './store'
 
 // *** NOT WORKING ***
@@ -17,13 +18,13 @@ import store from './store'
 //   />
 // )
 
-const todoApp = () => (
-  <Todo store={store.getState().todos} />
-)
+let el = document.getElementById('root')
 
-const render = () => {
-  ReactDOM.render(todoApp(), document.getElementById('root'))
+if (el) {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  )
 }
-
-render()
-store.subscribe(render)
