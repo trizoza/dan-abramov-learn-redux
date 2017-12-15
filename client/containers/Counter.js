@@ -4,7 +4,7 @@ import { onIncrement, onDecrement } from '../actions/counter'
 
 const mapStateToProps = (state) => {
   return {
-    value: state
+    value: state.counter
   }
 }
 
@@ -19,9 +19,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const App = connect(
+const Counter = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Components_Counter)
 
-export default App
+export default Counter
