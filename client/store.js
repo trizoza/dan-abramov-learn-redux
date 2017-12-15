@@ -1,5 +1,5 @@
 import { createStore, compose } from 'redux'
-import rootReducer from './reducers/index'
+import rootReducer from './state/reducers/index'
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : (f) => f

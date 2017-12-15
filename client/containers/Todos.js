@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import Components_Todo from '../components/Todo'
-import { addTodo } from '../actions/todo'
+import Components_Todos from '../components/Todos'
+import { addTodo } from '../state/actions/todos'
 
 const mapStateToProps = (state) => {
   return {
@@ -19,6 +19,6 @@ const mapDispatchToProps = (dispatch) => {
 const Todos = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Components_Todo)
+)(Components_Todos)
 
 export default Todos
