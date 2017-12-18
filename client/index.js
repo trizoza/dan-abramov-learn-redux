@@ -2,26 +2,15 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
-import Containers_Counter from './containers/Counter'
-import Containers_Todos from './containers/Todos'
-import store from './store'
+import Components_Root from './components/Root'
+import configureStore from './configureStore'
 
 let el = document.getElementById('root')
+const store = configureStore()
 
 if (el) {
   render(
-    <Provider store={store}>
-      <Containers_Todos />
-    </Provider>,
-    document.getElementById('todos')
-  )
-}
-
-if (el) {
-  render(
-    <Provider store={store}>
-      <Containers_Counter />
-    </Provider>,
-    document.getElementById('counter')
+    <Components_Root store={store} />,
+    document.getElementById('root')
   )
 }

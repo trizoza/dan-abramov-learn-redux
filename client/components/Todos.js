@@ -1,29 +1,25 @@
 import React from 'react'
 
-import Todo from './Todo'
-import AddTodo from './AddTodo'
+import Containers_TodoList from '../containers/TodoList'
+import Containers_AddTodo from '../containers/AddTodo'
+import Components_FilterLink from './FilterLink'
 
-const Todos = ({ todos, addTodo, toggleTodo, setVisibilityFilter, filter }) => {
-  console.log(todos)
+const Todos = ({ params }) => {
+  // console.log('params ', params)
   return (
     <div style={{ border: '1px solid blue' }}>
       <h1>Todos</h1>
-      <AddTodo addTodo={addTodo} />
-      <ul>
-        {todos.map((todo) => {
-          if (filter === 'SHOW_COMPLETED' && !todo.completed) {
-            return
-          } else if (filter === 'SHOW_DUE' && todo.completed) {
-            return
-          }
-          return (
-            <Todo key={todo.id} {...todo} toggleTodo={() => toggleTodo(todo.id)} />
-          )
-        })}
-      </ul>
-      <button type='button' value='SHOW_ALL' onClick={setVisibilityFilter}>all</button>
-      <button type='button' value='SHOW_COMPLETED' onClick={setVisibilityFilter}>completed</button>
-      <button type='button' value='SHOW_DUE' onClick={setVisibilityFilter}>due</button>
+      <Containers_AddTodo />
+      <Containers_TodoList filter={params.filter || 'all'} />
+      <p>
+        Show:
+        {' '}
+        <Components_FilterLink filter='all'>All</Components_FilterLink>
+        {', '}
+        <Components_FilterLink filter='due'>Due</Components_FilterLink>
+        {', '}
+        <Components_FilterLink filter='completed'>Completed</Components_FilterLink>
+      </p>
     </div>
   )
 }

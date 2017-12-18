@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from '../state/actions/todos'
 
-const AddTodo = ({ addTodo }) => {
+let AddTodo = ({ dispatch }) => {
   let newTodo = ''
 
   return (
@@ -11,7 +13,7 @@ const AddTodo = ({ addTodo }) => {
         return
       }
       // call action with new todo
-      addTodo(newTodo.value)
+      dispatch(addTodo(newTodo.value))
       // set input value back to empty string
       newTodo.value = ''
     }}>
@@ -23,5 +25,7 @@ const AddTodo = ({ addTodo }) => {
     </form>
   )
 }
+
+AddTodo = connect()(AddTodo)
 
 export default AddTodo
