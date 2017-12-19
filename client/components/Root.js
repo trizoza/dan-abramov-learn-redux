@@ -7,7 +7,7 @@ import Components_Todos from './Todos'
 // import Components_App from './App'
 
 const Root = ({ store }) => (
-  <Provider store={store}>
+  <Provider store={store} key='provider'>
     <Router history={browserHistory}>
       {/* <Route path='/(:filter)' component={Components_App} /> */}
       {/* <Route path='/counter' component={Containers_Counter} /> */}

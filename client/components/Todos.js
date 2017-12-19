@@ -1,16 +1,15 @@
 import React from 'react'
 
-import Containers_TodoList from '../containers/TodoList'
 import Containers_AddTodo from '../containers/AddTodo'
+import Containers_TodoList from '../containers/TodoList'
 import Components_FilterLink from './FilterLink'
 
-const Todos = ({ params }) => {
-  // console.log('params ', params)
+const Todos = () => {
   return (
     <div style={{ border: '1px solid blue' }}>
       <h1>Todos</h1>
       <Containers_AddTodo />
-      <Containers_TodoList filter={params.filter || 'all'} />
+      <Containers_TodoList />
       <p>
         Show:
         {' '}
